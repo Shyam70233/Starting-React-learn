@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
+import User from './Users';
 function C1() {
-  // console.log(useState('RadheShyam'));
-  const [x, setVal] = useState(0);
-  const p1 = () => {
-    setVal(x + 1);
-  };
-  const p2 = () => {
-    setVal(x - 1);
-  };
-  const p3 = () => {
-    setVal(0);
-  };
-  const p4 = () => {
-    setVal(x + 200);
-  };
-
+  console.log(User);
   return (
     <>
-      <h1>2nd Work</h1>
-      <h1>X : {x}</h1>
-      <button onClick={p1}>+1</button>
-      <button onClick={p2}>-1</button>
-      <button onClick={p3}>0</button>
-      <button onClick={p4}>200</button>
+      <h1>Users Table </h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>UserName</th>
+            <th>Compnay</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          {User.map((x) => (
+            <tr>
+              <td key={x.id}>{x.id}</td>
+              <td>{x.name}</td>
+              <td>{x.email}</td>
+              <td>{x.phone}</td>
+              <td>{x.username}</td>
+              <td>{x.company.name}</td>
+              <td>{JSON.stringify(x.address)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
