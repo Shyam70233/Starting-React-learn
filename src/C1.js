@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import User from './Users';
 function C1() {
-  console.log(User);
+  const randerrow = (x) => (
+    <tr>
+      <td key={x.id}>{x.id}</td>
+      <td>{x.name}</td>
+      <td>{x.email}</td>
+      <td>{x.phone}</td>
+      <td>{x.username}</td>
+      <td>{x.company.name}</td>
+      <td>{JSON.stringify(x.address)}</td>
+    </tr>
+  );
+
   return (
     <>
       <h1>Users Table </h1>
@@ -17,19 +28,7 @@ function C1() {
             <th>Address</th>
           </tr>
         </thead>
-        <tbody>
-          {User.map((x) => (
-            <tr>
-              <td key={x.id}>{x.id}</td>
-              <td>{x.name}</td>
-              <td>{x.email}</td>
-              <td>{x.phone}</td>
-              <td>{x.username}</td>
-              <td>{x.company.name}</td>
-              <td>{JSON.stringify(x.address)}</td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{User.map((x) => randerrow(x))}</tbody>
       </table>
     </>
   );
