@@ -3,7 +3,7 @@ function C1() {
   // console.log(useState('RadheShyam'));
   const [name, setname] = useState('Radhe');
   const onchaneName = () => {
-    setname('Shyam');
+    setname('Shyamk');
   };
   return (
     <>
